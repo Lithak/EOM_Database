@@ -5,6 +5,7 @@ from tkinter import ttk
 from tkinter import messagebox
 from datetime import *
 
+
 # function to open this module
 def popup():
     pass
@@ -21,23 +22,22 @@ mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', 
                                auth_plugin='mysql_native_password')
 mycursor = mydb.cursor()
 
-
-
 # Time & Date
 clock = Label(litha, font="bold")
 clock.pack()
 
 time = datetime.now()
-clock.config(text=time.strftime("%d/%m/%y  %H:%M:%S %p"), font='times 12', fg='#57b3fa', bg='#140f0f')
+clock.config(text=time.strftime("%d/%m/%y  %H:%M:%S %p"), font='times 12', bg='#D4F1BE', fg='black')
+
 
 # Getting Data
 def post():
     a = Name.get()
     b = Surname.get()
-    c = Phone.get()
-    d = Position.get()
+    c = Email.get()
+    d = Pass.get()
 
-    sql = "INSERT INTO Users (firstname, surname, Cell_no, Position) VALUES (%s, %s, %s, %s)"
+    sql = "INSERT INTO Admin_Staff (LastName, FirstName, EmailAddress, Password) VALUES (%s, %s, %s, %s)"
     val = (a, b, c, d)
     mycursor.execute(sql, val)
     mydb.commit()
@@ -77,20 +77,19 @@ Surname.pack(pady=10)
 Surname = Entry(width=25)
 Surname.pack(pady=15)
 
-entry_log = Label(litha, text="Enter Cellphone Number:",
+entry_log = Label(litha, text="Enter Email Address:",
                   font='arial 15 bold italic',
                   fg='#1ca509',
                   bg='#D4F1BE')
 entry_log.pack(pady=10)
-Phone = Entry(width=25)
-Phone.pack(pady=15)
+Email = Entry(width=25)
+Email.pack(pady=15)
 
 # ============================Gender
-gen_lab = Label(litha, text="Position", font=("arial", 12, 'bold'), bg='#D4F1BE', fg='#1ca509')
+gen_lab = Label(litha, text="Password", font=("arial", 12, 'bold'), bg='#D4F1BE', fg='#1ca509')
 gen_lab.pack()
-Position = ttk.Combobox(litha, state="readonly")
-Position['values'] = ('Admin', "Student", "Visitor")
-Position.pack(pady=20)
+Pass = Entry(litha, show='.')
+Pass.pack(pady=12)
 
 myButton = Button(litha, text="Register", width=15, bg='#1ca509', fg='black', command=post)
 myButton.pack(pady=11)
