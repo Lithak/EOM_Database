@@ -1,6 +1,5 @@
 import tkinter as tk
 import tkinter.ttk as ttk
-import datetime
 from datetime import *
 
 
@@ -17,7 +16,14 @@ class Application(tk.Frame):
         self.root.grid_columnconfigure(0, weight=1)
         self.root.config(background="#ABC895")
 
-        self.heading = tk.Label(self.root, text='- REGISTERATION FORM -',
+        # Time & Date
+        clock = tk.Label(self.root, font="bold")
+        clock.grid(row=0, column=0)
+
+        time = datetime.now()
+        clock.config(text=time.strftime('Date: ' + "%d/%m/%y\n" + 'Time: ' + "%H:%M:%S %p"), font='times 15', fg='black', bg='#ABC895')
+
+        self.heading = tk.Label(self.root, text='- SIGNING IN & OUT FORM -',
                                 font='times 22 bold underline',
                                 fg='#0B5800',
                                 bg='#ABC895')
@@ -64,15 +70,15 @@ class Application(tk.Frame):
         self.tree.heading('#0', text='Status')
         self.tree.heading('#1', text='Name')
         self.tree.heading('#2', text='Position')
-        self.tree.heading('#4', text='Time')
+        self.tree.heading('#3', text='Time')
 
         # Specify attributes of the columns (We want to stretch it!)
         self.tree.column('#0', stretch=tk.YES)
         self.tree.column('#1', stretch=tk.YES)
         self.tree.column('#2', stretch=tk.YES)
-        self.tree.column('#4', stretch=tk.YES)
+        self.tree.column('#3', stretch=tk.YES)
 
-        self.tree.grid(row=6, columnspan=5, sticky='nsew')
+        self.tree.grid(row=6, columnspan=5, rowspan=10)
         self.treeview = self.tree
 
         self.id = 0
@@ -85,6 +91,7 @@ class Application(tk.Frame):
                                      self.idnumber_entry.get()))
         self.iid = self.iid + 1
         self.id = self.id + 1
+
 
     def delete_data(self):
         row_id = int(self.tree.focus())

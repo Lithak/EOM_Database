@@ -11,9 +11,9 @@ def popup():
 
 # GUI properties/styles
 litha = Tk()
-litha.geometry("700x500")
+litha.geometry("540x500")
 litha.title('Lifechoices Academy Log - In Page')
-litha.configure(background='#CCF1CB')
+litha.configure(background='#D4F1BE')
 
 mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', database='Lifechoicesonline',
                                host='127.0.0.1',
@@ -50,21 +50,21 @@ def failed():
 
 head = Label(litha, text='Life Choices Online', font='times 12 bold ',
              fg='#19C300',
-             bg='#CCF1CB')
+             bg='#D4F1BE')
 head.pack()
 
-reg_frame = Frame(litha)
+reg_frame = Frame(litha, bg='#D4F1BE')
 reg_frame.pack(pady=30)
 heading = Label(reg_frame, text='- LOGIN PAGE -',
                 font='times 22 bold underline',
                 fg='#0B5800',
-                bg='#CCF1CB')
+                bg='#D4F1BE')
 heading.pack(pady=10)
 
 entry_log = Label(litha, text="Enter username:",
                   font='arial 15 bold italic',
                   fg='#1ca509',
-                  bg='#CCF1CB')
+                  bg='#D4F1BE')
 entry_log.pack(pady=10)
 
 Username = Entry(width=25)
@@ -73,7 +73,7 @@ Username.pack(pady=15)
 entry_log = Label(litha, text="Please enter password:",
                   font='arial 15 bold italic',
                   fg='#1ca509',
-                  bg='#CCF1CB')
+                  bg='#D4F1BE')
 entry_log.pack(pady=10)
 
 Password = Entry(width=20, show='*')

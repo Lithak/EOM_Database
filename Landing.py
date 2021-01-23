@@ -13,19 +13,19 @@ def popup():
 kane = Tk()
 kane.geometry("700x400")
 kane.title('Log - In Page')
-kane.configure(background='white')
+kane.configure(background='#ABC895')
 
 head = Label(kane, text='Life Choices Online', font='times 15 bold ',
              fg='#19C300',
-             bg='white')
+             bg='#ABC895')
 head.pack(padx=50, pady=10)
 
-reg_frame = Frame(kane)
+reg_frame = Frame(kane, bg='#ABC895')
 reg_frame.pack(pady=30)
 heading = Label(reg_frame, text='- ADMINISTRATION LOGIN -',
                 font='times 30 bold underline',
                 fg='#0B5800',
-                bg='white')
+                bg='#ABC895')
 heading.pack(pady=10)
 
 
